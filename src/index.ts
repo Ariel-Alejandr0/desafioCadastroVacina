@@ -1,10 +1,10 @@
 interface I_pessoa { //criando os atributos de cada pessoa
     cpf            : string,
     nome_pessoa    : string,
-    data_nascimento: Date,
+    data_nascimento: string,
     nome_vacina    : string,
-    data_vacina    : Date,
-    data_reforco   : Date
+    data_vacina    : string,
+    data_reforco   : string
 }
 const array_pessoas : I_pessoa[] = [] //criando um Array de pessoas
 
@@ -18,6 +18,20 @@ function verificarData(data_marcada : Date) : boolean{
     return true
 }
 
+function formataData(data : Date) : string{
+    const formato: Intl.DateTimeFormatOptions = {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+    }
+    const formatoLocal : Intl.DateTimeFormat = new Intl.DateTimeFormat('pt-BR', formato)
+    
+    return formatoLocal.format(data)
+}
+
+
 function salvarCadastro() : void{
     /*capturando as informações do formulário e fazendo um cast para converter a para string ou Date*/
     const c_cpf             = ((<HTMLInputElement>document.getElementById('cpf')).value).toString()
@@ -25,7 +39,6 @@ function salvarCadastro() : void{
     const c_data_nascimento = new Date((<HTMLInputElement>document.getElementById('data_nascimento')).value)
     const c_nome_vacina     = ((<HTMLInputElement>document.getElementById('nome_vacina')).value).toString()
     const c_data_vacina     = new Date((<HTMLInputElement>document.getElementById('data_vacina')).value)
-    
 
 
 
@@ -34,28 +47,44 @@ function salvarCadastro() : void{
         let c_data_reforco : Date  = new Date(c_data_vacina) //copiando a data de vacinação
         c_data_reforco.setDate(c_data_vacina.getDate() + 30) // adicionando 30 dias
         
-        
-        array_pessoas.push({cpf: c_cpf, nome_pessoa: c_nome_pessoa, data_nascimento: c_data_nascimento, 
-            nome_vacina: c_nome_vacina, data_vacina: c_data_vacina, data_reforco: c_data_reforco})
+
+        //adicionando pessoas no array
+        array_pessoas.push({cpf: c_cpf, nome_pessoa: c_nome_pessoa, data_nascimento: formataData(c_data_nascimento), 
+        nome_vacina: c_nome_vacina, data_vacina: formataData(c_data_vacina), data_reforco: formataData(c_data_reforco)}) 
+
     }
     console.log(array_pessoas)
 }
 
-function mostrarNaPagina() : void{
-    const pessoa_cadastrada = document.createElement("div")
-    for (let index = 0; index < array_pessoas.length; index++) {
-        const pessoa  = array_pessoas[index];
-        const c_cpf             = document.createTextNode("CPF: " + pessoa.cpf)
-        const c_nome_pessoa     = document.createTextNode("NOME: " + pessoa.nome_pessoa)
-        const c_data_nascimento = document.createTextNode("DATA DE NASCIMENTO: " + pessoa.data_nascimento)
-        const c_nome_vacina     = document.createTextNode("VACINA: " + pessoa.nome_vacina)
-        const c_data_vacina     = document.createTextNode("DATA DE VACINAÇÃO: " + pessoa.data_vacina)
-        const c_data_reforco    = document.createTextNode("DATA DE REFORCO: " + pessoa.data_reforco)
-        
-        const nodes : Text[] = [c_cpf, c_nome_pessoa, c_data_nascimento, c_nome_vacina, c_data_vacina, c_data_reforco]
 
+function mostrarNaPagina() : void{
+    const pessoa_cadastrada : HTMLDivElement  = document.createElement("div")
+    const pular_linha       : HTMLBRElement   = document.createElement("br")
+
+    pessoa_cadastrada.id = ("pessoa_cadastrada")
+
+    document.getElementById('dados_cadastrados')!.appendChild(pessoa_cadastrada)
+
+    for (let index = 0; index < array_pessoas.length; index++) {
+        const pessoa : I_pessoa = array_pessoas[index];
+
+        const n_cpf             = document.createTextNode("CPF: " + pessoa.cpf)
+        const n_nome_pessoa     = document.createTextNode("NOME: " + pessoa.nome_pessoa)
+        const n_data_nascimento = document.createTextNode("DATA DE NASCIMENTO: " + pessoa.data_nascimento)
+        const n_nome_vacina     = document.createTextNode("VACINA: " + pessoa.nome_vacina)
+        const n_data_vacina     = document.createTextNode("DATA DE VACINAÇÃO: " + pessoa.data_vacina)
+        const n_data_reforco    = document.createTextNode("DATA DE REFORCO: " + pessoa.data_reforco)
+        
+
+        const nodes : Text[] = [n_cpf, n_nome_pessoa, n_data_nascimento, n_nome_vacina, 
+                                n_data_vacina, n_data_reforco]
+
+            
         for(let n = 0; n < nodes.length; n++){
-            document.getElementById("dados_cadastrados")?.appendChild(nodes[n]) 
+            const paragrafo : HTMLParagraphElement = document.createElement("p")
+            paragrafo.appendChild(nodes[n])
+            document.getElementById("pessoa_cadastrada")!.appendChild(paragrafo) 
+            
         }
     }
     
