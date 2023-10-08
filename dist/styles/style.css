@@ -10,15 +10,18 @@ h1 {
     font-size: 40px;
     font-weight: bold;
 }
+h2{
+    color: #076678;
+}
 h1#titulo{
     text-align: center;
     width: 100%;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }   
 
 form {
     width: 360px;
-    height: 500px;
+    height: 475px;
     margin: auto;
     padding: 10px;
     border-radius: 8px;
@@ -32,7 +35,7 @@ div#dados_cadastrados{
     overflow-y: scroll;
 
     width: 360px;
-    height: 500px;
+    height: 475px;
     margin: auto;
     vertical-align: top;
     padding: 10px;
@@ -60,10 +63,37 @@ input[type="text"], input[type="datetime-local"], input[type="date"]{
 i{
     padding-left: 3px;
 }
-button{
-    transition: transform 1s ease;
+input[type="submit"]{
+    width: 80px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background: #98971a;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;     
 }
-button:hover{
+input[type="reset"]{
+    width: 80px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background: #cc241d;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer; 
+}
+input[type="submit"]:hover, input[type="reset"]:hover{
     transform: scale(1.05);
-    filter: drop-shadow(5px 5px 1px black);
+    
 }

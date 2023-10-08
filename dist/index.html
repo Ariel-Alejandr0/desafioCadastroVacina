@@ -20,26 +20,27 @@
                 <h2>Controle de vacinação</h2>
 
                 <label for="cpf">CPF:</label>
-                <input type="text" name="cpf" id="cpf" maxlength="11"> 
+                <input type="text" name="cpf" id="cpf" maxlength="11" required="true"> 
                 <br>
 
                 <label for="nome_pessoa">Nome: </label>
-                <input type="text" name="nome_pessoa" id="nome_pessoa" maxlength="40">
+                <input type="text" name="nome_pessoa" id="nome_pessoa" maxlength="40" required="true">
                 <br>
 
                 <label for="data_nascimento">Data de nascimento</label>
-                <input type="date" name="data_nascimento" id="data_nascimento">
+                <input type="date" name="data_nascimento" id="data_nascimento" required="true">
                 <br>
 
                 <label for="nome_vacina">Nome da vacina</label>
-                <input type="text" name="nome_vacina" id="nome_vacina">
+                <input type="text" name="nome_vacina" id="nome_vacina" required="true">
                 <br>
 
                 <label for="data_vacina">Data de vacinação</label>
-                <input type="datetime-local" name="data_vacina" id="data_vacina" maxlength="10">
+                <input type="datetime-local" name="data_vacina" id="data_vacina" maxlength="10" required="true">
                 <br>
                 
-                <input type="submit" value="enviar">
+                <input type="submit" value="enviar" class="buttom">
+                <input type="reset" value="Limpar">
             </form>
 
             <div id="dados_cadastrados">

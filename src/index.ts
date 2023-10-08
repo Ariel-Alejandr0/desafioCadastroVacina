@@ -73,6 +73,7 @@ function mostrarNaPagina(pessoa : I_pessoa) : void{
         
     const nodes : Text[] = [n_cpf, n_nome_pessoa, n_data_nascimento, n_nome_vacina, n_data_vacina, n_data_reforco]
 
+        
 
     for(let n = 0; n < nodes.length; n++){
         const paragrafo : HTMLParagraphElement = document.createElement("p")
