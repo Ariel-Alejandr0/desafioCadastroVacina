@@ -25,9 +25,25 @@ function salvarCadastro() {
     console.log(array_pessoas);
 }
 function mostrarNaPagina() {
+    var _a;
+    const pessoa_cadastrada = document.createElement("div");
+    for (let index = 0; index < array_pessoas.length; index++) {
+        const pessoa = array_pessoas[index];
+        const c_cpf = document.createTextNode("CPF: " + pessoa.cpf);
+        const c_nome_pessoa = document.createTextNode("NOME: " + pessoa.nome_pessoa);
+        const c_data_nascimento = document.createTextNode("DATA DE NASCIMENTO: " + pessoa.data_nascimento);
+        const c_nome_vacina = document.createTextNode("VACINA: " + pessoa.nome_vacina);
+        const c_data_vacina = document.createTextNode("DATA DE VACINAÇÃO: " + pessoa.data_vacina);
+        const c_data_reforco = document.createTextNode("DATA DE REFORCO: " + pessoa.data_reforco);
+        const nodes = [c_cpf, c_nome_pessoa, c_data_nascimento, c_nome_vacina, c_data_vacina, c_data_reforco];
+        for (let n = 0; n < nodes.length; n++) {
+            (_a = document.getElementById("dados_cadastrados")) === null || _a === void 0 ? void 0 : _a.appendChild(nodes[n]);
+        }
+    }
 }
 const formulario = document.getElementById("cadastro-form");
 formulario.addEventListener("submit", function (evento) {
     evento.preventDefault();
     salvarCadastro();
+    mostrarNaPagina();
 });
