@@ -27,7 +27,7 @@ function formataData(data : Date) : string{
         minute: 'numeric',
     }
     const formatoLocal : Intl.DateTimeFormat = new Intl.DateTimeFormat('pt-BR', formato)
-    
+
     return formatoLocal.format(data)
 }
 
@@ -59,8 +59,7 @@ function salvarCadastro() : void{
 
 function mostrarNaPagina() : void{
     const pessoa_cadastrada : HTMLDivElement  = document.createElement("div")
-    const pular_linha       : HTMLBRElement   = document.createElement("br")
-
+    
     pessoa_cadastrada.id = ("pessoa_cadastrada")
 
     document.getElementById('dados_cadastrados')!.appendChild(pessoa_cadastrada)

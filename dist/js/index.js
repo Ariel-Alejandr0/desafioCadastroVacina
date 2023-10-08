@@ -38,7 +38,6 @@ function salvarCadastro() {
 }
 function mostrarNaPagina() {
     const pessoa_cadastrada = document.createElement("div");
-    const pular_linha = document.createElement("br");
     pessoa_cadastrada.id = ("pessoa_cadastrada");
     document.getElementById('dados_cadastrados').appendChild(pessoa_cadastrada);
     for (let index = 0; index < array_pessoas.length; index++) {
