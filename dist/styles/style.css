@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+section#cadastro{
+    display: flex;
+}
+h1 {
+    color: brown;
+    font-size: 40px;
+    font-weight: bold;
+}
+h1#titulo{
+    text-align: center;
+    width: 100%;
+    padding-bottom: 100px;
+}   
+
+form {
+    width: 360px;
+    height: 500px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #1D1D1D;
+    border-color: #1d1d1d;
+    background-color: #ebdbb2;
+    filter: drop-shadow(1px 1px 5px);
+}
+
+div#dados_cadastrados{
+    overflow-y: scroll;
+
+    width: 360px;
+    height: 500px;
+    margin: auto;
+    vertical-align: top;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #1D1D1D;
+    border-color: #1d1d1d;
+    background-color: #ebdbb2;
+    filter: drop-shadow(1px 1px 5px);
+}
+
+
+label{
+    display: block;
+    margin-bottom: 5px;
+    color: #1D1D1D;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+input[type="text"], input[type="datetime-local"], input[type="date"]{
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+}
+
+i{
+    padding-left: 3px;
+}
+button{
+    transition: transform 1s ease;
+}
+button:hover{
+    transform: scale(1.05);
+    filter: drop-shadow(5px 5px 1px black);
+}

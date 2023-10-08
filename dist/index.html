@@ -4,21 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link a="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="styles/style.css">
     <script src="js/index.js" defer></script>
 </head>
 
 <body>
     <main>
+
+        <section id="titulo_da_pagina">
+            <h1 id="titulo">Controle de vacinação</h1>
+        </section>
+
         <section id="cadastro">
             <form id="cadastro-form">
-                <h1>Controle de vacinação</h1>
+                <h2>Controle de vacinação</h2>
 
                 <label for="cpf">CPF:</label>
                 <input type="text" name="cpf" id="cpf" maxlength="11"> 
                 <br>
 
-                <label for="nome_pessoa">Nome da pessoa: </label>
+                <label for="nome_pessoa">Nome: </label>
                 <input type="text" name="nome_pessoa" id="nome_pessoa" maxlength="40">
                 <br>
 
@@ -31,14 +36,15 @@
                 <br>
 
                 <label for="data_vacina">Data de vacinação</label>
-                <input type="datetime-local" name="data_vacina" id="data_vacina">
+                <input type="datetime-local" name="data_vacina" id="data_vacina" maxlength="10">
                 <br>
                 
                 <input type="submit" value="enviar">
             </form>
-        </section>
-        <section id="dados_cadastrados">
-            
+
+            <div id="dados_cadastrados">
+                <h2>cadastros:</h2>
+            </div>
         </section>
     </main>
 </body>
